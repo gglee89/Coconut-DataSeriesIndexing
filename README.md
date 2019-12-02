@@ -35,6 +35,11 @@
 ## 2. File Architecture
 
 ```js
+  - /class
+    - Dataseries.h: Main Dataseries class. Coordinates between Indexing and Querying operations.
+    - Indexing.h: Encapsulates methods related to Indexing operations (e.g.: SAX Summarization, BTree build).
+    - Query.h: Encapsulates methods related to Query operations (e.g.: Exact Search, Similarity Search).
+    - Sax.h: Encapsulates methods related to iSAX summarization (e.g.: zvaluecal, paacal, saxcal, and invertsax);
   - /external_lib
     - stdc++.h:
     - tree_m.h: `BTree` builder
@@ -43,7 +48,7 @@
     - utility.h: Conversion functions
   - /output
     - (Generated) summarization.txt: SAX representations of Raw Data Series
-    - (Generated) execution_timelog.txt: Query execution time log
+    - (Generated) timelog_*.txt: Query execution time log
   - input.txt (Raw dataseries input)
   - main.cpp (Main source code)
   - README.md (Code Documentation)
@@ -60,6 +65,88 @@ $ g++ -std=c++11 main.cpp
 ```bash
 2. Run the program with the new compiled executable
 $ ./a.out
+```
+
+```bash
+3. The program consists of two main operations. Indexing and Querying.
+Main Menu:
+==================================
+========== Coconut Menu ==========
+==================================
+== [0]: Indexing =================
+== [1]: Query ====================
+== [2]: Exit =====================
+==================================
+Enter choice:
+```
+
+```bash
+4. Indexing:
+  ==============================================================================
+  Raw dataseries input filepath [input.txt]: input.txt
+  opening input.txt...
+
+  Performing SAX Summarization...
+  =========================================
+  ===== Coconut Summarization Output: =====
+  =========================================
+  [Output filename]: output/summarization.txt
+  [Output log filename]: output/timelog_sax_summarization.txt
+
+  Building BTree...
+  =========================================
+  ====== Coconut BTree Build Output: ======
+  =========================================
+  [Total execution time]: 7.3e-05s
+  [Output log filename]: output/timelog_btree.txt
+  Enter [anykey] to continue...
+  ==============================================================================
+
+  - Input:
+    - Raw dataseries input file (e.g.: input.txt)
+  - Output:
+    - summarization.txt
+    - timelog_btree.txt: Output of the Execution time to build the BTree.
+    - timelog_sax_summarization.txt: Output of the Execution time to build the SAX Summarization.
+```
+
+```bash
+4. Querying:
+  ==============================================================================
+  =================================
+  ========= Coconut Query =========
+  =================================
+  [e or E]: Exact Search
+  [s or S]: Simiilarity Search
+  [r or R]: Return to Main Menu
+  Enter choice : e
+
+  ================================
+  ========= Search Query =========
+  ================================
+  == Description: Sequence ending with a #(pound) symbol
+  == Example: 2 4 20 6 3 1 #
+  ================================
+  Enter query: 10 20 30 40 50 5 4 26 #
+  find the node!
+  70368748371968
+  36
+
+  ==================================
+  ===== Coconut Query Output: =====
+  =================================
+  [Total execution time]: 0.000116s
+  =================================
+
+  Enter [anykey] to continue...
+  ==============================================================================
+  - Input:
+    - Raw dataseries input file (e.g.: input.txt)
+    - Summarization of the raw dataseries (e.g.: summarization.txt)
+  - Output:
+    - summarization.txt
+    - timelog_btree.txt: Output of the Execution time to build the BTree.
+    - timelog_sax_summarization.txt: Output of the Execution time to build the SAX Summarization.
 ```
 
 ## 4. Dataset

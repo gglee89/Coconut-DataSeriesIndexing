@@ -172,7 +172,7 @@ class Indexing {
       openSaxSummarizationOutputFile();
       openTimelogSaxSummarizationOutputFile();
 
-      cout << "\nPerfoming SAX Summarization..." << endl;
+      cout << "\nPerforming SAX Summarization...";
       string line;
 
       // BUILD SAX SUMMARIZATION
