@@ -23,13 +23,14 @@
   - bulk-loads the sorted entries into the B+ Tree for querying.
 - **Content:** The project consists of 5 files:
   - Input:
-    - **main.css:** Main executable generator;
-    - **utility.h:** Utility functions separated into an individual file;
-    - **input/:** Data series entries
+    - **main.cpp:** Main executable;
+    - **functions:** Utility functions separated into an individual module;
+    - **class:** Main classes for DataSeries, Indexing, and Query (OOP approach);
+    - **input.txt:** Raw data series
     - **README.md** (Documentation);
   - Output:
-    - djwaioda
-    - dhwuiahduwai
+    - summarization.txt: SAX dataseries summarization;
+    - timelog\_\*.txt: Timelog outputs from Indexing and Query execution time;
 
 ## 2. File Architecture
 
