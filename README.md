@@ -154,15 +154,32 @@ Enter choice:
 There are two test datasets for this program:
 
 ```
-[1MB test dataset]
-input.txt
+[10KB test dataset]
+Index construction (BTree build):
+  - [Total execution time]: 0.000298s
+
+Query Exact Search
+  - [Total execution time]: 0.000118s
+```
+
+```
+[3.6MB small dataset]
+Index construction (BTree build):
+  - [Total execution time]: 0.004538s
+
+Query Exact Search
+  - [Total execution time]: 0.000199s
 ```
 
 ```
 [450MB test dataset - For Scalability test]
 You need to download this generated dataset to perform tests.
 I've uploaded a copy of the dataset into a public-url in my Google Drive.
+https://drive.google.com/open?id=1EHA5QvDUGZ8Uz0E4X0qoZKlOk-GeUTis
 
+Obs.: Make sure to increase your application array memory size.
+      This dataset contains 202.000+ dataseries.
+      Otherwise, the application will trigger Exceptions.
 ```
 
 ## 5. Collaborators

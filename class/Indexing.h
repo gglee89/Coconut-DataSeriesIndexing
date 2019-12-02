@@ -209,7 +209,7 @@ class Indexing {
            << outputPath + timelogSaxSummarizationFilename << endl;
 
     } catch (const exception &e) {
-      throw(e.what());
+      cout << "Exception in Indexing.Summarization: " << e.what() << endl;
     }
   }
   void construct(BTree &bt) {

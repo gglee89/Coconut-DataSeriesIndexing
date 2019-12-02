@@ -90,8 +90,12 @@ class DataSeries {
   }
 
   void summarization() {
-    Indexing in;
-    in.construct(bt);
+    try {
+      Indexing in;
+      in.construct(bt);
+    } catch(const exception &e) {
+      cout << "Exception in Index construction: " << e.what() << endl;
+    }
 
     program_main_routing();
   }
