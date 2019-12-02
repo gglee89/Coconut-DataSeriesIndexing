@@ -44,7 +44,7 @@ class Query {
     timelogSearchSimilarityFile.close();
   }
   string get_search_query() {
-    cout << "================================" << endl;
+    cout << "\n================================" << endl;
     cout << "========= Search Query =========" << endl;
     cout << "================================" << endl;
     cout << "== Description: Sequence ending with a #(pound) symbol" << endl;
@@ -80,7 +80,6 @@ class Query {
     cout << "===== Coconut Query Output: =====" << endl;
     cout << "=================================" << endl;
     cout << "[Total execution time]: " << delta / CLOCKS_PER_SEC << "s" << endl;
-    cout << "[Result (key, sequence)]: " << node << endl;
     cout << "=================================\n" << endl;
   }
 

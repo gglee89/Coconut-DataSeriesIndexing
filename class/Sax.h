@@ -33,12 +33,10 @@ class Sax {
     }
 
     // INPUT SUMMARIZATION PROCEDURE
-    zvaluecal(move(numlist));
-    paacal(move(zNormOutput));
-    saxcal(move(paaOutput));
-    invertsax(saxOutput);
-
-    return f2D_32_encode;
+    vector<float> zNormOutput = zvaluecal(numlist);
+    vector<float> paaOutput = paacal(zNormOutput);
+    string saxOutput = saxcal(paaOutput);
+    return invertsax(saxOutput);
   }
 
   /**
@@ -48,7 +46,7 @@ class Sax {
    * @project: COP5725 - @FSU Fall '19
    * @since 2019-11-24
    */
-  void zvaluecal(vector<float> &&list) {
+  vector<float> zvaluecal(vector<float> list) {
     float sum = 0, ssum = 0, ave = 0, newvalue;
     vector<float> result;
     for (int i = 0; i < list.size(); i++) {
@@ -63,7 +61,7 @@ class Sax {
       newvalue = (list[i] - ave) / ssum;
       result.push_back(newvalue);
     }
-    zNormOutput = result;
+    return result;
   }
 
   /**
@@ -73,7 +71,7 @@ class Sax {
    * @project: COP5725 - @FSU Fall '19
    * @since 2019-11-24
    */
-  void paacal(vector<float> &&list) {
+  vector<float> paacal(vector<float> list) {
     // DIVIDES BY 4 BECAUSE THERE'S FOUR GROUPS
     int M = list.size() / 4;  // 7 / 4 = 1
     int newsize = M;
@@ -86,18 +84,12 @@ class Sax {
     for (int i = 1; i <= newsize; i++) {
       float sum = 0;
       for (int k = (n / newsize * (i - 1) + 1); k <= ((n / newsize) * i); k++) {
-        // cout << "k: " << k << " ((n / newsize)*i): " << ((n / newsize)*i) <<
-        // " list[k - 1]: " << list[k - 1] << endl ;
         sum = list[k - 1] + sum;
       }
       float x = sum * newsize / n;
-
-      // cout << "sum: " << sum << endl;
-      // #1: 20 * 0.25
-      // #2:
       result.push_back(x);
     }
-    paaOutput = result;
+    return result;
   }
 
   /**
@@ -107,14 +99,14 @@ class Sax {
    * @project: COP5725 - @FSU Fall '19
    * @since 2019-11-24
    */
-  void saxcal(vector<float> &&list) {
+  string saxcal(vector<float> list) {
     int size = list.size();
     string result;
     for (int i = 0; i < size; i++) {
       int a = ceil(list[i] * 10) + 107;
       result.push_back(char(a));
     }
-    saxOutput = result;
+    return result;
   }
 
   /**
@@ -125,7 +117,7 @@ class Sax {
    * @project: COP5725 - @FSU Fall '19
    * @since 2019-11-24
    */
-  void invertsax(string &list) {
+  uint64_t invertsax(string list) {
     uint64_t answer = 0;
     for (int i = 3; i > 0; i--) {
       for (int j = 0; j < sizeof(list); j++) {
@@ -134,12 +126,6 @@ class Sax {
         answer += binaryFormat * powerFormat;
       }
     }
-    f2D_32_encode = answer;
+    return answer;
   }
-
- private:
-  vector<float> zNormOutput;
-  vector<float> paaOutput;
-  string saxOutput;
-  uint64_t f2D_32_encode;
 };

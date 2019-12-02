@@ -6,7 +6,6 @@ class Indexing {
     timelogSaxSummarizationFilename = "timelog_sax_summarization.txt";
     timelogBTreeFileName = "timelog_btree.txt";
   };
-
   void openDataseriesFile() {
     try {
       cout << "Raw dataseries input filepath [input.txt]: ";
@@ -128,8 +127,10 @@ class Indexing {
     cout << "\nBuilding BTree...";
 
     // FILE PROCESSING STARTS HERE
+    openSaxSummarizationInputFile();
+    openTimelogSaxSummarizationInputFile();
+
     string lineSaxSummarizationTimelog, lineSaxSummarization;
-    int numline = 0;
 
     // START TIME TRACKING
     startTime = clock();
@@ -140,8 +141,7 @@ class Indexing {
     while (getline(saxSummarizationInputFile, lineSaxSummarization) &&
            getline(timelogSaxSummarizationInputFile,
                    lineSaxSummarizationTimelog)) {
-      numline++;
-      bt.insert(std::stoull(lineSaxSummarization), lineSaxSummarizationTimelog);
+      bt.insert(stoull(lineSaxSummarization), lineSaxSummarizationTimelog);
     }
 
     // END TIME TRACKING
@@ -153,6 +153,8 @@ class Indexing {
     timelogBTreeFile << delta << "\n";
 
     // CLOSE FILES
+    closeSaxSummarizationInputFile();
+    closeTimelogSaxSummarizationInputFile();
     closeTimelogBTreeFile();
 
     // OUTPUT
@@ -165,31 +167,32 @@ class Indexing {
   }
   void saxSummarization() {
     try {
+      // OPEN FILES
       openDataseriesFile();
+      openSaxSummarizationOutputFile();
+      openTimelogSaxSummarizationOutputFile();
 
-      cout << "\nPerfoming SAX Summarization...";
+      cout << "\nPerfoming SAX Summarization..." << endl;
       string line;
 
-      // PROCESS DATASET
-      startTime = clock();
-
       // BUILD SAX SUMMARIZATION
-      openSaxSummarizationOutputFile();
       Sax s;
       while (getline(rawDataseriesFile, line)) {
+        // PROCESS DATASET
+        startTime = clock();
+
         uint64_t f2D_32_encode = s.summarization(line);
 
         // SAVE SAX SUMMARIZATION
         saxSummarizationOutputFile << f2D_32_encode << "\n";
+
+        // END EXECUTION TIME
+        endTime = clock();
+        double delta = (double)(endTime - startTime);
+
+        // SAVE EXECUTION TIME
+        timelogSaxSummarizationOutputFile << delta << "\n";
       }
-
-      // END EXECUTION TIME
-      endTime = clock();
-      double delta = (double)(endTime - startTime);
-
-      // SAVE EXECUTION TIME
-      openTimelogSaxSummarizationOutputFile();
-      timelogSaxSummarizationOutputFile << delta << "\n";
 
       // CLOSE All FILES
       closeDataseriesFile();
@@ -200,8 +203,6 @@ class Indexing {
       cout << "\n=========================================" << endl;
       cout << "===== Coconut Summarization Output: =====" << endl;
       cout << "=========================================" << endl;
-      cout << "[Total execution time]: " << delta / CLOCKS_PER_SEC << "s"
-           << endl;
       cout << "[Output filename]: " << outputPath + saxSummarizationFilename
            << endl;
       cout << "[Output log filename]: "

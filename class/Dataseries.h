@@ -76,8 +76,17 @@ class DataSeries {
         }
       }
 
+      program_pause();
       entry = program_main_menu();
     }
+  }
+
+  void program_pause() {
+    char input = '\t';
+    while (input == '\t') {
+      cout << "Enter [anykey] to continue..." << endl;
+      cin >> input;
+    };
   }
 
   void summarization() {
@@ -98,10 +107,12 @@ class DataSeries {
         case 's':
         case 'S':
           q.search_similarity(bt);
+          program_pause();
           break;
         case 'e':
         case 'E':
           q.search_exact(bt);
+          program_pause();
           break;
         case 'r':
         case 'R':
@@ -112,6 +123,8 @@ class DataSeries {
           break;
         }
       }
+
+      entry = program_query_menu();
     }
   }
 
