@@ -8,5 +8,5 @@
  */
 int main(int argc, char *argv[]) {
   DataSeries ds;
-  ds.programMainRouting();
+  ds.program_main_routing();
 }

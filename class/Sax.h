@@ -7,6 +7,12 @@ using namespace std;
 
 #include "../functions/utility.h"
 
+/**
+ * @title: SAX Class
+ * @author: Giwoo G Lee
+ * @project: COP5725 - @FSU Fall '19
+ * @since 2019-11-24
+ */
 class Sax {
  public:
   uint64_t summarization(string line) {

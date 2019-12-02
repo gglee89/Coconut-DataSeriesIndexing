@@ -1,12 +1,8 @@
-#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <algorithm>
 #include <cstdlib>
 #include <fstream>
-#include <iomanip>
 #include <iostream>
-#include <iterator>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -19,6 +15,9 @@
 using namespace std;
 using namespace tree_m;
 
+#include "Indexing.h"
+#include "Query.h"
+
 #include "../functions/menu.h"
 
 /**
@@ -29,50 +28,25 @@ using namespace tree_m;
  */
 class DataSeries {
  public:
-  DataSeries() {
-    outputPath = "output/";
-    saxFilename = "summarization.txt";
-  };
-
-  void openDataseriesFile() {
-    cout << "Enter raw dataseries filepath: ";
-
-    string file_name;
-    cin >> file_name;
-
-    rawDataseriesFile.open(file_name);
-    if (rawDataseriesFile.fail()) {
-      throw("cannot open input file.");
-    } else {
-      cout << "opening " << file_name << "..." << endl;
-    }
-  }
-
-  void closeDataseriesFile() { rawDataseriesFile.close(); }
-
-  void programMainRouting() {
+  void program_main_routing() {
     int entry = program_main_menu();
 
-    while (entry != 3) {
+    while (entry != '\t') {
       switch (entry) {
         case 0: {
           try {
-            openDataseriesFile();
             summarization();
           } catch (const exception &e) {
             cout << "Summarization Exception: " << e.what() << endl;
           }
-          closeDataseriesFile();
           break;
         }
         case 1: {
           try {
-            openDataseriesFile();
             query();
           } catch (const exception &e) {
             cout << "Query Exception: " << e.what() << endl;
           }
-          closeDataseriesFile();
           break;
         }
         case 2: {
@@ -107,71 +81,40 @@ class DataSeries {
   }
 
   void summarization() {
-    string line, str;
-    clock_t startTime, endTime;
+    Indexing in;
+    in.construct(bt);
 
-    if (rawDataseriesFile.fail()) {
-      throw("no file has been loaded.");
-    }
-
-    try {
-      // PROCESS DATASET
-      startTime = clock();
-      while (getline(rawDataseriesFile, line)) {
-        // BUILD SAX SUMMARIZATION
-        Sax s;
-        uint64_t f2D_32_encode = s.summarization(line);
-
-        // END EXECUTION TIME
-        endTime = clock();
-
-        // SUMMARIZATION FILE
-        saxSummarizationFile.open(outputPath + saxFilename, ios::app);
-        saxSummarizationFile << f2D_32_encode << "\n";
-
-        // OUTPUT
-        cout << "\n=========================================" << endl;
-        cout << "===== Coconut Summarization Output: =====" << endl;
-        cout << "=========================================" << endl;
-        cout << "[Total execution time]: "
-             << (double)(endTime - startTime) / CLOCKS_PER_SEC << "s" << endl;
-        cout << "[Output filename]: " << outputPath + saxFilename << endl;
-      }
-      saxSummarizationFile.close();
-    } catch (const exception &e) {
-      throw(e.what());
-    }
+    program_main_routing();
   }
 
   void query() {
     // ARGUMENT ERROR HANDLING
     char entry = program_query_menu();
 
-    while (entry != 'q' || entry != 'Q') {
+    while (entry != 's' || entry != 'S' || entry != 'e' || entry != 'E' ||
+           entry != 'r' || entry != 'R') {
+      Query q;
       switch (entry) {
         case 's':
         case 'S':
-          cout << "Options S selected" << endl;
+          q.search_similarity(bt);
           break;
         case 'e':
         case 'E':
-          cout << "Options E selected" << endl;
+          q.search_exact(bt);
           break;
         case 'r':
         case 'R':
-          programMainRouting();
+          program_main_routing();
           break;
-        default:
+        default: {
           cout << "\nInvalid key" << endl;
           break;
+        }
       }
     }
   }
 
  private:
-  ifstream rawDataseriesFile;
-  ofstream saxSummarizationFile;
-  string outputPath;
-  string saxFilename;
-  string executionTimelogFilename;
+  BTree bt = BTree(3);
 };

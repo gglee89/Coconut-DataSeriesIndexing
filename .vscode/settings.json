@@ -4,7 +4,14 @@
     "iosfwd": "cpp",
     "string": "cpp",
     "type_traits": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "ios": "cpp",
+    "exception": "cpp",
+    "memory_resource": "cpp",
+    "memory": "cpp",
+    "scoped_allocator": "cpp",
+    "istream": "cpp",
+    "*.tcc": "cpp"
   },
   "C_Cpp.clang_format_fallbackStyle": "Google"
 }

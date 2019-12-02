@@ -5,6 +5,7 @@
  * @since 2019-11-24
  */
 int program_main_menu() {
+  system("clear");
   cout << "\n==================================" << endl;
   cout << "========== Coconut Menu ==========" << endl;
   cout << "==================================" << endl;
@@ -12,7 +13,7 @@ int program_main_menu() {
   cout << "== [1]: Query ====================" << endl;
   cout << "== [2]: Exit =====================" << endl;
   cout << "==================================" << endl;
-  cout << "Enter choice : ";
+  cout << "Enter choice: ";
 
   int input;
   cin >> input;
@@ -20,6 +21,7 @@ int program_main_menu() {
 }
 
 char program_query_menu() {
+  system("clear");
   cout << "\n=================================" << endl;
   cout << "========= Coconut Query =========" << endl;
   cout << "=================================" << endl;
