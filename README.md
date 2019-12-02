@@ -35,7 +35,11 @@
 
 ```js
   - /external_lib
+    - stdc++.h:
+    - tree_m.h: `BTree` builder
   - /functions
+    - menu.h: Display menu for Summarization and Query
+    - utility.h: Conversion functions
   - /output
     - (Generated) summarization.txt: SAX representations of Raw Data Series
     - (Generated) execution_timelog.txt: Query execution time log
