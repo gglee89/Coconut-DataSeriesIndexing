@@ -7,8 +7,8 @@
 #include <string>
 #include <vector>
 
+#include "../external_lib/btree.h"
 #include "../external_lib/stdc++.h"
-#include "../external_lib/tree_m.h"
 
 #include "Sax.h"
 
@@ -93,7 +93,7 @@ class DataSeries {
     try {
       Indexing in;
       in.construct(bt);
-    } catch(const exception &e) {
+    } catch (const exception &e) {
       cout << "Exception in Index construction: " << e.what() << endl;
     }
 
