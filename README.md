@@ -55,6 +55,8 @@
   - (Generated) a.out: Binary executable
 ```
 
+![Demo__ArchitectureDiagram](https://user-images.githubusercontent.com/16644017/70005785-c3781480-1538-11ea-9d2b-c7b2a6adcfd8.jpeg)
+
 ## 3. How to Run the code
 
 ```bash
