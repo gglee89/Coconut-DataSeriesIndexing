@@ -161,10 +161,10 @@ There are five test datasets for this program. They were all evaluated in regard
 
 #### Summary chart
 
-- Index construction (Summarization + BTree construction):
+- =====> Index construction (Summarization + BTree construction):
   ![image](https://user-images.githubusercontent.com/16644017/70069127-4479ef00-15bf-11ea-94b4-cdababfc1fb2.png)
 
-- Query Exact Search:
+- =========> Querying w/ Exact Search:
   ![image](https://user-images.githubusercontent.com/16644017/70069317-928ef280-15bf-11ea-9000-305df5ec01c9.png)
 
 ```
