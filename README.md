@@ -9,30 +9,19 @@
 1. **Project Description.**
    - Disclaimer.
    - What is it about?
-   - Content.
-2. **File Architecture**
+2. **File Structure**
 3. **How to run the code.**
 4. **Result.**
 5. **Collaborators.**
 
 ## 1. Project Description
 
-- **Disclaimer:** As a disclaimer, the source code found in this project is a personal intepretation of the original implementation. The original implementation can be found in the authors' code repositories.
-- **What is it about?** C++ implementation of the Coconut technique. The source code implementation generates the following:
-  - sortable summarization of data series entries.
-  - bulk-loads the sorted entries into the B+ Tree for querying.
-- **Content:** The project consists of 5 files:
-  - Input:
-    - **main.cpp:** Main executable;
-    - **functions:** Utility functions separated into an individual module;
-    - **class:** Main classes for DataSeries, Indexing, and Query (OOP approach);
-    - **input.txt:** Raw data series
-    - **README.md** (Documentation);
-  - Output:
-    - summarization.txt: SAX dataseries summarization;
-    - timelog\_\*.txt: Timelog outputs from Indexing and Query execution time;
+- **Disclaimer:** The source code found in this project is a personal intepretation of the original implementation. The original implementation can be found in the authors' code repositories.
+- **What is it about?** C++ implementation of the Coconut architecture. The source code implementation generates the following:
+  - sortable summarization of data series entries. (Index construction)
+  - bulk-loads the sorted entries into the B+ Tree for querying (Querying).
 
-## 2. File Architecture
+## 2. File Structure
 
 ```js
   - /class
@@ -85,7 +74,7 @@ Enter choice:
 ```bash
 4. Indexing:
   ==============================================================================
-  Raw dataseries input filepath [input.txt]: input.txt
+  Raw dataseries input filepath [e.g.: input.txt]: input.txt
   opening input.txt...
 
   Performing SAX Summarization...

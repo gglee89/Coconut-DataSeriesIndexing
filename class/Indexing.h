@@ -8,7 +8,7 @@ class Indexing {
   };
   void openDataseriesFile() {
     try {
-      cout << "Raw dataseries input filepath [input.txt]: ";
+      cout << "Raw dataseries input filepath [e.g.: input.txt]: ";
 
       string file_name = "input.txt";
       cin >> file_name;
