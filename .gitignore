@@ -1,6 +1,9 @@
+.DS_Store
+
 // Generated output
 *.txt
 a.out
 
 // Visual Studio preferences
 .vscode
+
