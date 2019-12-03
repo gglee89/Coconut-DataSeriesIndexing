@@ -37,7 +37,7 @@
 ```js
   - /class
     - Dataseries.h: Main Dataseries class. Coordinates between Indexing and Querying operations.
-    - Indexing.h: Encapsulates methods related to Indexing operations (e.g.: SAX Summarization, BTree build).
+    - Indexing.h: Encapsulates methods related to Indexing operations (e.g.: SAX Summarization, Summarization + BTree construction).
     - Query.h: Encapsulates methods related to Query operations (e.g.: Exact Search, Similarity Search).
     - Sax.h: Encapsulates methods related to iSAX summarization (e.g.: zvaluecal, paacal, saxcal, and invertsax);
   - /external_lib
@@ -97,7 +97,7 @@ Enter choice:
 
   Building BTree...
   =========================================
-  ====== Coconut BTree Build Output: ======
+  ====== Coconut Summarization + BTree construction Output: ======
   =========================================
   [Total execution time]: 7.3e-05s
   [Output log filename]: output/timelog_btree.txt
@@ -157,7 +157,7 @@ There are two test datasets for this program:
 
 ```
 [10KB test dataset]
-Index construction (BTree build):
+Index construction (Summarization + BTree construction):
   - [Total execution time]: 0.000298s
 
 Query Exact Search
@@ -166,11 +166,38 @@ Query Exact Search
 
 ```
 [3.6MB small dataset]
-Index construction (BTree build):
+Index construction (Summarization + BTree construction):
   - [Total execution time]: 0.004538s
 
 Query Exact Search
   - [Total execution time]: 0.000199s
+```
+
+```
+[23.3MB medium dataset]
+Index construction (Summarization + BTree construction):
+  - [Total execution time]: 0.028598s
+
+Query Exact Search
+  - [Total execution time]: 0.000731s
+```
+
+```
+[46.6MB medium dataset]
+Index construction (Summarization + BTree construction):
+  - [Total execution time]: 0.046573s
+
+Query Exact Search
+  - [Total execution time]: 0.000918s
+```
+
+```
+[116.5MB large dataset]
+Index construction (Summarization + BTree construction):
+  - [Total execution time]: 0.127639s
+
+Query Exact Search
+  - [Total execution time]: 0.000848s
 ```
 
 ```
