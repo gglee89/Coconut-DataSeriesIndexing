@@ -42,7 +42,7 @@
     - Sax.h: Encapsulates methods related to iSAX summarization (e.g.: zvaluecal, paacal, saxcal, and invertsax);
   - /external_lib
     - stdc++.h:
-    - tree_m.h: `BTree` builder
+    - btree.h: `BTree` builder
   - /functions
     - menu.h: Display menu for Summarization and Query
     - utility.h: Conversion functions
