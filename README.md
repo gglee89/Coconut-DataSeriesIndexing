@@ -12,7 +12,7 @@
    - Content.
 2. **File Architecture**
 3. **How to run the code.**
-4. **Dataset.**
+4. **Result.**
 5. **Collaborators.**
 
 ## 1. Project Description
@@ -151,7 +151,7 @@ Enter choice:
     - timelog_sax_summarization.txt: Output of the Execution time to build the SAX Summarization.
 ```
 
-## 4. Dataset
+## 4. Result
 
 There are five test datasets for this program. They were all evaluated in regards to their speed performance in the **Index construction (Summarization + BTree construction)** and **Querying w/ exact search**.
 
