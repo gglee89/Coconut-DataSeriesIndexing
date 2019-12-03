@@ -153,52 +153,19 @@ Enter choice:
 
 ## 4. Dataset
 
-There are two test datasets for this program:
+There are five test datasets for this program. They were all evaluated in regards to their speed performance in the **Index construction (Summarization + BTree construction)** and **Querying w/ exact search**.
 
-```
-[10KB test dataset]
-Index construction (Summarization + BTree construction):
-  - [Total execution time]: 0.000298s
+#### Summary Table
 
-Query Exact Search
-  - [Total execution time]: 0.000118s
-```
+![image](https://user-images.githubusercontent.com/16644017/70071220-f961db00-15c2-11ea-808b-bba1cdd2a3f4.png)
 
-```
-[3.6MB small dataset]
-Index construction (Summarization + BTree construction):
-  - [Total execution time]: 0.004538s
+#### Summary chart
 
-Query Exact Search
-  - [Total execution time]: 0.000199s
-```
+- Index construction (Summarization + BTree construction):
+  ![image](https://user-images.githubusercontent.com/16644017/70069127-4479ef00-15bf-11ea-94b4-cdababfc1fb2.png)
 
-```
-[23.3MB medium dataset]
-Index construction (Summarization + BTree construction):
-  - [Total execution time]: 0.028598s
-
-Query Exact Search
-  - [Total execution time]: 0.000731s
-```
-
-```
-[46.6MB medium dataset]
-Index construction (Summarization + BTree construction):
-  - [Total execution time]: 0.046573s
-
-Query Exact Search
-  - [Total execution time]: 0.000918s
-```
-
-```
-[116.5MB large dataset]
-Index construction (Summarization + BTree construction):
-  - [Total execution time]: 0.127639s
-
-Query Exact Search
-  - [Total execution time]: 0.000848s
-```
+- Query Exact Search:
+  ![image](https://user-images.githubusercontent.com/16644017/70069317-928ef280-15bf-11ea-9000-305df5ec01c9.png)
 
 ```
 [450MB test dataset - For Scalability test]
