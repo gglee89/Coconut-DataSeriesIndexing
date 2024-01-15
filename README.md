@@ -2,7 +2,7 @@
 
 **Original Paper:** https://www.vldb.org/pvldb/vol11/p677-kondylakis.pdf
 <br>
-**Project:** This is the database project for the COP5725 course taught by [Dr.PhD.Peixiang Zhao](http://www.cs.fsu.edu/~zhao/) for Fall '19 @Florida State University.
+**Project:** This is the database project for the COP5725 course taught by [Dr.PhD.Peixiang Zhao](http://www.cs.fsu.edu/~zhao/) for Fall @Florida State University.
 
 ## Index:
 
@@ -169,7 +169,7 @@ Obs.: Make sure to increase your application array memory size.
 
 ## 5. Collaborators
 
-- **Giwoo G Lee.** PhD student in Computer Science @Florida State University
+- **Giwoo G Lee.** MSc student in Computer Science @Florida State University
   - Research
   - Development
   - Presentation
